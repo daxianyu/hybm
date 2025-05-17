@@ -1,0 +1,5 @@
+/* pages/privacy/privacy.wxss */
+.privacy-image{
+  display: block;
+  width: 100%;
+}

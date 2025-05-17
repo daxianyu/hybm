@@ -1,0 +1,188 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true" class="scroll-container">
+    <view class="page-title">
+      <text class="page-title-text">入学申请表</text>
+      <image src="/images/icon.png"></image>
+    </view>
+
+    <view class="tip-container">
+      <text class='tip'>感谢您关注浦华曜ONE，请填写以下信息，我们将在近几个工作日内与您联系，请保持关注。</text>
+    </view>
+
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="form-section">
+        <view class="section-title">学生基本信息</view>
+        
+        <view class="form-item">
+          <text class="title must">学生姓名</text>
+          <input name="name" placeholder="请填写学生的全名" placeholder-style="color:#ddd;font-size:32rpx;" />
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">性别</text>
+          <radio-group name="sex" class="radio-horizontal" bindchange="sexChange">
+            <label class="radio-btn {{sex=='男'?'radio-btn-active':''}}">
+              <radio value="男" />
+              <text>男</text>
+            </label>
+            <label class="radio-btn {{sex=='女'?'radio-btn-active':''}}">
+              <radio value="女" />
+              <text>女</text>
+            </label>
+          </radio-group>
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">就读年级</text>
+          <input name="class" placeholder="请填写当前学生所在的年级" placeholder-style="color:#ddd;font-size:32rpx;" />
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">在读课程</text>
+          <radio-group class="radio-group" name="current_lesson" bindchange="currentLessonChange">
+            <label class="radio-btn {{current_lesson=='体制内课程'?'radio-btn-active':''}}">
+              <radio value="体制内课程" />
+              <text>体制内课程</text>
+            </label>
+            <label class="radio-btn {{current_lesson=='A-level课程'?'radio-btn-active':''}}">
+              <radio value="A-level课程" />
+              <text>A-level课程</text>
+            </label>
+            <label class="radio-btn {{current_lesson=='IB课程'?'radio-btn-active':''}}">
+              <radio value="IB课程" />
+              <text>IB课程</text>
+            </label>
+            <label class="radio-btn {{current_lesson=='美高AP课程'?'radio-btn-active':''}}">
+              <radio value="美高AP课程" />
+              <text>美高AP课程</text>
+            </label>
+            <label class="radio-btn {{current_lesson=='其他'?'radio-btn-active':''}}">
+              <radio value="其他" />
+              <text>其他</text>
+            </label>
+          </radio-group>
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">在读学校</text>
+          <input name="school" placeholder="请填写当前学生所在的学校" placeholder-style="color:#ddd;font-size:32rpx;" />
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">留学目的地</text>
+          <radio-group class="radio-group" name="goalarea" bindchange="goalAreaChange">
+            <label class="radio-btn {{goalarea=='美联邦'?'radio-btn-active':''}}">
+              <radio value="美联邦" />
+              <text>美联邦</text>
+            </label>
+            <label class="radio-btn {{goalarea=='美国'?'radio-btn-active':''}}">
+              <radio value="美国" />
+              <text>美国</text>
+            </label>
+            <label class="radio-btn {{goalarea=='其他'?'radio-btn-active':''}}">
+              <radio value="其他" />
+              <text>其他</text>
+            </label>
+          </radio-group>
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">报考课程</text>
+          <radio-group class="radio-group" name="apply_courses" bindchange="applyCoursesChange">
+            <label class="radio-btn {{apply_courses=='A-level课程'?'radio-btn-active':''}}">
+              <radio value="A-level课程" />
+              <text>A-level课程</text>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      
+      <view class="form-section">
+        <view class="section-title">联系方式</view>
+        
+        <view class="form-item">
+          <text class="title must">手机号</text>
+          <input name="mobile" placeholder="请填写有效的联系电话" maxlength="11" type='tel' placeholder-style="color:#ddd;font-size:32rpx;" />
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">电子邮件</text>
+          <input name="email" placeholder="使用来接收入学考试信息，请输入真实邮箱" placeholder-style="color:#ddd;font-size:32rpx;" />
+        </view>
+        
+        <view class="form-item">
+          <text class="title">微信号</text>
+          <input name="wx" placeholder="请填写学生或家长的邮箱地址" placeholder-style="color:#ddd;font-size:32rpx;" />
+        </view>
+      </view>
+      
+      <view class="form-section">
+        <view class="section-title">身份信息与了解途径</view>
+        
+        <view class="form-item">
+          <text class="title must">您的身份是</text>
+          <radio-group name="relationship" class="radio-horizontal" bindchange="relationshipChange">
+            <label class="radio-btn {{relationship=='学生本人'?'radio-btn-active':''}}">
+              <radio value="学生本人" />
+              <text>学生本人</text>
+            </label>
+            <label class="radio-btn {{relationship=='爸爸'?'radio-btn-active':''}}">
+              <radio value="爸爸" />
+              <text>爸爸</text>
+            </label>
+            <label class="radio-btn {{relationship=='妈妈'?'radio-btn-active':''}}">
+              <radio value="妈妈" />
+              <text>妈妈</text>
+            </label>
+            <label class="radio-btn {{relationship=='其他监护人'?'radio-btn-active':''}}">
+              <radio value="其他监护人" />
+              <text>其他监护人</text>
+            </label>
+          </radio-group>
+        </view>
+        
+        <view class="form-item">
+          <text class="title must">您最初通过哪种途径了解浦华曜ONE</text>
+          <radio-group class="radio-group" name="reason" bindchange="reasonChange">
+            <label class="radio-btn {{reason=='亲友介绍'?'radio-btn-active':''}}">
+              <radio value="亲友介绍" />
+              <text>亲友介绍</text>
+            </label>
+            <label class="radio-btn {{reason=='他人推荐'?'radio-btn-active':''}}">
+              <radio value="他人推荐" />
+              <text>他人推荐</text>
+            </label>
+            <label class="radio-btn {{reason=='学校官微'?'radio-btn-active':''}}">
+              <radio value="学校官微" />
+              <text>学校官微</text>
+            </label>
+            <label class="radio-btn {{reason=='网络信息'?'radio-btn-active':''}}">
+              <radio value="网络信息" />
+              <text>网络信息</text>
+            </label>
+            <label class="radio-btn {{reason=='其他'?'radio-btn-active':''}}">
+              <radio value="其他" />
+              <text>其他</text>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <view class="privacy">
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox value="privacy">
+            请先阅读<text bindtap="toPrivacy">《个人信息及隐私保护政策》</text>
+          </checkbox>
+        </checkbox-group>
+        <view>当您"勾选"时，代表您已经阅读和同意接受本《个人信息及隐私保护政策》所有内容</view>
+      </view>
+
+      <view class="submit-btn">
+        <button form-type="submit" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" disabled="{{!checkboxData.length}}">提交</button>
+      </view>
+      
+      <view class="bottom-space"></view>
+    </form>
+  </scroll-view>
+</view>
